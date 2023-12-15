@@ -4,7 +4,9 @@ CLIENT = client
 CLIENT_OBJS = client.o
 SERVER = server
 SERVER_OBJS = server.o net.o
-PROGS = $(CLIENT) $(SERVER)
+MY_TIMEOUT = my_timeout
+MY_TIMEOUT_OBJS = my_timeout.o
+PROGS = $(CLIENT) $(SERVER) $(MY_TIMEOUT)
 
 all : $(PROGS)
 
@@ -22,6 +24,12 @@ server.o : server.c net.h
 
 net.o : net.c net.h
 	$(CC) $(CFLAGS) -c net.c
+
+$(MY_TIMEOUT) : $(MY_TIMEOUT_OBJS)
+	$(CC) $(CFLAGS) -o $(MY_TIMEOUT) $(MY_TIMEOUT_OBJS)
+
+mytimeout.o : mytimeout.c
+	$(CC) $(CFLAGS) -c mytimeout.c
 
 
 clean :
