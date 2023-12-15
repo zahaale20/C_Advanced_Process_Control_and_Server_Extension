@@ -28,8 +28,8 @@ net.o : net.c net.h
 $(MY_TIMEOUT) : $(MY_TIMEOUT_OBJS)
 	$(CC) $(CFLAGS) -o $(MY_TIMEOUT) $(MY_TIMEOUT_OBJS)
 
-mytimeout.o : mytimeout.c
-	$(CC) $(CFLAGS) -c mytimeout.c
+my_timeout.o : my_timeout.c
+	$(CC) $(CFLAGS) -c my_timeout.c
 
 
 clean :
